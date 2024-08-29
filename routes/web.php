@@ -2,10 +2,14 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsersController;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/users/create', [UsersController::class, 'create'])->name('users.create');
+Route::post('/users/store', [UsersController::class, 'store'])->name('users.store');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
