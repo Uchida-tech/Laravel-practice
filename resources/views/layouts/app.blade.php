@@ -15,18 +15,13 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
+        <header>
+            @include('layouts.header')
+        </header>
 
-            <!-- Page Heading -->
-            <header>
-                @include('layouts.header')
-            </header>
+        <main>
+            @yield('content')
+        </main>
 
-            <!-- Page Content -->
-            <main>
-                @yield('content')
-            </main>
-        </div>
     </body>
 </html>

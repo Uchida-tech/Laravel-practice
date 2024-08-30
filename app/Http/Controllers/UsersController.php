@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+// use App\Http\Requests\User\UserRequest;
 
 class UsersController extends Controller
 {
@@ -42,10 +43,10 @@ class UsersController extends Controller
 
             DB::commit();
 
-            return response()->view('users.create', compact('user'), 201);
+            return view('users.create', compact('user'))->with('message', '登録が完了しました！');
         } catch (\Exception $e) {
             DB::rollBack();
-            return redirect()->route('users.create')->with('message', '登録に失敗しました。' . $e->getMessage());
+            return back()->with('message', '登録に失敗しました。' . $e->getMessage());
         }
     }
 

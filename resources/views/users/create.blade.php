@@ -12,6 +12,9 @@
                 <input id="name" type="text"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                     name="name" value="{{ old('name') }}" required>
+                    @error('name')
+                        <div class="text-red-500">{{ $message }}</div>
+                    @enderror
             </div>
 
             <div class="mt-4">
@@ -19,6 +22,9 @@
                 <input id="email" type="email"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                     name="email" value="{{ old('email') }}" required>
+                    @error('email')
+                        <div class="text-red-500">{{ $message }}</div>
+                    @enderror
             </div>
 
             <div class="mt-4">
@@ -26,6 +32,9 @@
                 <input id="password" type="password"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                     name="password" value="{{ old('password') }}" required>
+                    @error('password')
+                        <div class="text-red-500">{{ $message }}</div>
+                    @enderror
             </div>
 
             @if (session('message'))
@@ -43,9 +52,9 @@
             @endisset
 
             <div class="flex items-center justify-center my-4">
-                <button type="submit">
+                <x-button>
                     登録を完了する
-                </button>
+                </x-button>
             </div>
     </form>
 @endsection
