@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-// use App\Http\Requests\User\UserRequest;
+use App\Http\Requests\User\UserRequest;
 
 class UsersController extends Controller
 {
@@ -28,7 +28,7 @@ class UsersController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
         try {
             DB::beginTransaction();

@@ -11,7 +11,8 @@ class UserRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        //認証情報の変更
+        return true;
     }
 
     /**
@@ -25,6 +26,17 @@ class UserRequest extends FormRequest
             'name' => 'required|max:255',
             'email' => 'required|email|unique:users,email',
             'password' => ['required', 'string', 'min:8', 'regex:/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&])/',],
+        ];
+    }
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array<string, string>
+     */
+    public function messages(): array
+    {
+        return [
+            'password.regex' => 'パスワードは少なくとも1つの半角英字、数字、および記号（@$!%*?&）を含む必要があります。',
         ];
     }
 }
